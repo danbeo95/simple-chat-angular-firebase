@@ -1,0 +1,20 @@
+<mat-sidenav-container class="chat-container">
+    <mat-sidenav opened mode="side">
+        <h4>Id {{currentUid}}</h4>
+        <app-chat-users-list
+         [users]="users$ | async"
+         [activeUid]="activeUid$ | async"
+        (selectUser)="onSelectUser($event)">
+        </app-chat-users-list >
+    </mat-sidenav>
+    <mat-sidenav-content class="chat-content">
+        <ng-container *ngIf="(activeUid$ | async) !==''">
+            <app-chat-messages class="chat-messages" [messages]="messages" [isLoading]="isLoading" [currentUid]="currentUid"></app-chat-messages>
+            <app-send-message-form class="chat-send-message-form" [isSending]="isSending" (send)="onSendMessages($event)"></app-send-message-form>
+        </ng-container>
+        <ng-container *ngIf="(activeUid$ | async) ==''">
+           <h3 style="text-align: center;">Please select user</h3>
+        </ng-container>
+    </mat-sidenav-content>
+    <input type="text">
+  </mat-sidenav-container>

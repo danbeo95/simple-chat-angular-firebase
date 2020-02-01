@@ -1,0 +1,11 @@
+<button
+  [disabled]="isLoading"
+  mat-raised-button
+  color="primary">
+  {{text}}
+  <mat-icon *ngIf="isLoading">
+    <mat-spinner
+      [diameter]="20"
+      color="warn"></mat-spinner>
+  </mat-icon>
+</button>

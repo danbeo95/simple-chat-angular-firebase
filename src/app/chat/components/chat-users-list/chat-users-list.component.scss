@@ -1,0 +1,11 @@
+.users-list {
+  width: 300px !important;
+ 
+}
+.user-item{
+    border-bottom: 0.5px solid #dedede;
+    transition: all 1s;
+}
+.active-user-item { 
+    background: #dedede;
+}

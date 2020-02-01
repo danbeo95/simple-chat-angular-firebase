@@ -1,0 +1,9 @@
+<mat-nav-list class="users-list">
+  <mat-list-item
+    *ngFor="let user of users"
+    class="user-item"
+    [class.active-user-item]="user.uid === activeUid"
+    (click)="onClickUser(user)">
+    <a matLine>{{ user.email }}</a>
+  </mat-list-item>
+</mat-nav-list>

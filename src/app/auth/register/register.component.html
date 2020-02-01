@@ -1,0 +1,32 @@
+
+<div class="register-container">
+    <h3 style="text-align: center;">Simple chat with firebase,angular material.It is for demo so no guard,no session..</h3>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Register</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>  
+            <div class="register-form" [formGroup]="form">
+                <mat-form-field>
+                    <input type="text" matInput placeholder="Email" formControlName="email">
+                    <mat-error>Please enter valid email</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input type="password" matInput placeholder="Password" formControlName="password">
+                    <mat-error *ngIf="passwordFormCtrl.hasError('required')">Please enter  password</mat-error>
+                    <mat-error  *ngIf="passwordFormCtrl.hasError('minlength')">Password must be at least 6 </mat-error>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+        <mat-card-actions align="center">
+            <app-button-loading
+            [text]="'Register'"
+            [isLoading]="isLoading"
+            (click)="onClickRegister()">
+            </app-button-loading>
+            <button mat-raised-button [routerLink]="'../login'">Login</button>
+            <mat-error style="padding-top:20px" *ngIf="errorMsg!==''">{{errorMsg}}</mat-error>
+        </mat-card-actions>
+    </mat-card>
+</div>
+
